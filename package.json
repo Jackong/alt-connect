@@ -1,11 +1,10 @@
 {
   "name": "alt-connect",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "connect mixin for alt store",
   "main": "index.js",
   "scripts": {
-    "build": "babel index.jsx --out-file index.js",
-    "prepublish": "npm run build",
+    "prepublish": "gulp webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -28,6 +27,10 @@
   "homepage": "https://github.com/Jackong/alt-connect",
   "dependencies": {},
   "devDependencies": {
-    "babel": "^5.8.21"
+    "babel-core": "^5.8.22",
+    "babel-loader": "^5.3.2",
+    "gulp": "^3.9.0",
+    "webpack": "^1.12.0",
+    "webpack-stream": "^2.1.0"
   }
 }
