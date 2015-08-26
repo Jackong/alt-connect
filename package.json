@@ -1,6 +1,6 @@
 {
   "name": "alt-connect",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "connect mixin for alt store",
   "main": "index.js",
   "scripts": {

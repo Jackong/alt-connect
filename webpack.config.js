@@ -6,11 +6,6 @@ module.exports = {
         filename: 'index.js',
         chunkFilename: 'index.js'
     },
-
-    externals: [
-        '../../public/js/alt'
-    ],
-
     module: {
         loaders: [{
             test: /\.jsx$/,
