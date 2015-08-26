@@ -3,11 +3,8 @@ export default (...stores) => {
             class Connect extends base {
                 constructor(props) {
                     super(props)
-                    this.state = {}
+                    this.state = this.state ? this.state : {}
                     this.listeners = []
-                }
-                componentWillMount() {
-                    super.componentWillMount()
                     if (stores.length === 0) {
                         return
                     }
