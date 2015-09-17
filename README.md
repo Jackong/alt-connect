@@ -3,33 +3,30 @@ connect mixin for alt store
 
 ## Features
 * auto connect your stores
+* use displayName as namespace
 
 ## Examples
 ```js
 import React, { PropTypes } from 'react'
-import mixin from 'es6-react-mixins'
 import connect from 'alt-connect'
 
-class App extends mixin(connect(Store1, Store2)) {
-    constructor(props) {
-        super(props)//required if you has constructor
-    }
+@connect(Store1, Store2)
+class App extends React.Component {
     componentWillMount() {
-        //required if you has componentWillMount
-        super.componentWillMount()//for connect listen
+        //listen
+        super.componentWillMount()
 
         //do something
-        Actions0.get()
+        Actions1.get()
     }
     componentWillUnmount() {
-        //required if you has componentWillUnmount
-        super.componentWillUnmount()//for connect unlisten
+        //unlisten
+        super.componentWillUnmount()
         //do something
     }
     componentDidMount() {
         super.componentDidMount()
 
-        Actions1.get()
         Actions2.get();
     }
     render () {

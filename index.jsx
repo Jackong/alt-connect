@@ -1,6 +1,6 @@
 export default (...stores) => {
-    return base => (
-            class Connect extends base {
+    return Component => (
+            class Connect extends Component {
                 constructor(props) {
                     super(props)
                     this.state = this.state ? this.state : {}
@@ -9,15 +9,13 @@ export default (...stores) => {
                         return
                     }
                     this.listeners = stores.map(store => {
-                        let states = store.getState()
-                        for (var key in states) {
-                            if (!states.hasOwnProperty(key)) {
-                                continue
-                            }
-                            this.state[key] = states[key]
-                        }
-                        return store.listen(this.setState.bind(this))
+                        let name = store.displayName
+                        this.state[name] = store.getState()
+                        return store.listen(this._onChange.bind(this, name))
                     })
+                }
+                _onChange(name, state) {
+                    this.setState({name: state})
                 }
                 componentWillUnmount() {
                     this.listeners.map(unlisten => unlisten())
